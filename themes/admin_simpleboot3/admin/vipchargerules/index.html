@@ -1,0 +1,53 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a >vip充值规则列表</a></li>
+			<li><a href="{:url('Vipchargerules/add')}">添加</a></li>
+		</ul>
+
+		<form method="post" class="js-ajax-form" action="{:url('Vipchargerules/listorderset')}">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit">{:lang('SORT')}</button>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>排序</th>
+						<th align="center">ID</th>
+						<th>名称</th>
+						<th>价格</th>
+						<th>充值天数</th>
+						<th>需花费钻石</th>
+						<th>发布时间</th>
+						<th align="center">{:lang('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<foreach name="lists" item="vo">
+					<tr>
+						<td><input name="listorders[{$vo['id']}]" type="text" size="3" value="{$vo['orderno']}" class="input input-order"></td>
+						<td align="center">{$vo.id}</td>
+						<td>{$vo['name']}</td>
+						<td>{$vo['money']}</td>
+						<td>{$vo['days']}</td>
+						<td>{$vo['coin']}</td>
+						<td>{:date('Y-m-d H:i:s',$vo['addtime'])}</td>
+						<td align="center">
+							<a class="btn btn-xs btn-primary" href="{:url('Vipchargerules/edit',array('id'=>$vo['id']))}" >编辑</a>
+							
+							<a class="btn btn-xs btn-danger  js-ajax-dialog-btn" href="{:url('Vipchargerules/del',array('id'=>$vo['id']))}" data-msg="您确定要删除吗？">删除</a>
+							
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+			<div class="pagination">{$page}</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

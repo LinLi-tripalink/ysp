@@ -1,0 +1,73 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a >直播列表</a></li>
+			<li><a href="{:url('Liveing/add')}">添加视频</a></li>
+			
+		</ul>
+		
+		<form class="well form-inline margin-top-20" method="post" action="{:url('Liveing/index')}">
+			时间：	
+			<input type="text" name="start_time" class="js-bootstrap-date form-control" value="{:input('request.start_time')}" autocomplete="off" placeholder="开始时间">-
+			<input type="text" name="end_time" class="js-bootstrap-date form-control" value="{:input('request.end_time')}" autocomplete="off" placeholder="结束时间">&nbsp; &nbsp;
+			关键字：			
+			<input class="form-control" type="text" name="keyword" style="width: 200px;" value="{:input('request.keyword')}" placeholder="请输入会员ID">			
+			<input type="submit" class="btn btn-primary" value="搜索"/>
+			<a class="btn btn-danger" href="{:url('Admin/Liveing/index')}">清空</a>
+		</form>
+
+		<form method="post" class="js-ajax-form" action="">
+			
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th align="center">会员昵称</th>
+						<th align="center">直播ID</th>
+						<th align="center">直播分类</th>
+						<th align="center">直播状态</th>
+						<th align="center">直播开始时间</th>
+						<th align="center">在线人数</th>
+						<th align="center">本场收益</th>
+						<th align="center">打赏人数</th>
+						<th align="center">人均打赏</th>
+						<th align="center">播流地址</th>
+						<th align="center">设备信息</th>
+						<th align="center">{:lang('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<php>$islive=array("0"=>"直播结束","1"=>"直播中");</php>
+					<foreach name="lists" item="vo">
+					<tr>
+						<td align="center">{$vo.uid}</td>
+						<td align="center">{$vo['userinfo']['user_nicename']}</td>
+						<td align="center">{$vo['showid']}</td>
+						<td align="center">{$liveclass[$vo['liveclassid']]}</td>
+						<td align="center">{$islive[$vo['islive']]}</td>
+						<td align="center">{:date('Y-m-d H:i:s',$vo['starttime'])}</td>
+						<td align="center">{$vo['nums']}</td>
+						<td align="center">{$vo['totalcoin']}</td>
+						<td align="center">{$vo['total_nums']}</td>
+						<td align="center">{$vo['total_average']}</td>
+						<td align="center">{$vo['pull']}</td>
+						<td align="center">{$vo['deviceinfo']}</td>
+						<td align="center">
+							<if condition="$vo.isvideo eq '1'">
+								<a class="btn btn-xs btn-primary" href="{:url('Liveing/edit',array('uid'=>$vo['uid']))}" >编辑</a>
+
+								<a class="btn btn-xs btn-danger  js-ajax-dialog-btn" href="{:url('Liveing/del',array('id'=>$vo['uid']))}" data-msg="您确定要删除吗？">删除</a>
+							</if>
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+			<div class="pagination">{$page}</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

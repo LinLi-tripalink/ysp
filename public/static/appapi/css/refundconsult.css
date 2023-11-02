@@ -1,0 +1,68 @@
+body{
+	background: #18152B;
+}
+
+.list{
+	margin-top: 0.5rem;
+}
+
+.list li{
+	position: relative;
+	padding-bottom: 0.5rem;
+	padding-left: 0.6rem;
+	border-left: 1px solid #969696;
+	margin-left: 0.6rem;
+}
+
+.list li p{
+	line-height: 0.5rem;
+	color: #969696;
+	font-size: 0.28rem;
+}
+
+.list li p span{
+	color: #E4367D;
+}
+
+.list li .list_title{
+	font-weight: bold;
+	color: #FFF;
+	font-size: 0.3rem;
+	margin-bottom: 0.3rem;
+}
+
+.list li .list_time{
+	color: #646464;
+}
+
+.list li .list_tip{
+	position: absolute;
+	left: -20px;
+	top: 0px;
+	width: 40px;
+	height: 25px;
+}
+
+.list li .list_buyer_tip{
+	background: url(../images/orderrefund/buyer.png) no-repeat;
+	background-size: 100%;
+}
+
+.list li .list_seller_tip{
+	background: url(../images/orderrefund/seller.png) no-repeat;
+	background-size: 100%;
+}
+
+.list li .list_platform_tip{
+	background: url(../images/orderrefund/platform.png) no-repeat;
+	background-size: 100%;
+}
+
+.list li .list_system_tip{
+	background: url(../images/orderrefund/system.png) no-repeat;
+	background-size: 100%;
+}
+
+.list .border_none{
+	border: none;
+}

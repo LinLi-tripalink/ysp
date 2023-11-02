@@ -1,0 +1,163 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li ><a href="{:url('user/adminIndex/index')}">列表</a></li>
+			<li class="active"><a >{:lang('EDIT')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('user/adminIndex/editPost')}">
+
+			<div class="form-group">
+                <label for="input-maintain_switch" class="col-sm-2 control-label"><span class="form-required">*</span>选择国家/地区</label>
+                <div class="col-md-6 col-sm-10">
+                    <select class="form-control" name="country_code">
+                        <option value="">--选择国家/地区--</option>
+                        <foreach name="country_list" item="vo">
+                            <option value="{$vo['tel']}" <if condition="$data.country_code eq $vo.tel">selected</if>>{$vo['name']}</option>
+                        </foreach>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="form-group">
+				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>手机号</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-user_login" name="user_login" value="{$data['user_login']}" readonly="readonly">
+				</div>
+			</div>
+            
+            
+            
+            <div class="form-group">
+				<label for="input-user_nicename" class="col-sm-2 control-label"><span class="form-required">*</span>昵称</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-user_nicename" name="user_nicename" maxlength="8" value="{$data['user_nicename']}"> 最多8个字
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="input-avatar" class="col-sm-2 control-label"><span class="form-required">*</span>头像/封面</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="hidden" name="avatar" id="thumbewm" value="{$data['avatar']}">
+					<a href="javascript:uploadOneImage('图片上传','#thumbewm');">
+					<if condition="$data['avatar'] neq ''">
+						<img src="{:get_upload_path($data['avatar'])}"
+									id="thumbewm-preview"
+									style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					<else/>
+						<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="thumbewm-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					</if>
+					</a>
+					<input type="button" class="btn btn-sm btn-cancel-thumbewm" value="取消图片">建议尺寸：400px*400px
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input-avatar_thumb" class="col-sm-2 control-label"><span class="form-required">*</span>头像缩略图</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="hidden" name="avatar_thumb" id="avatar_thumb" value="{$data['avatar_thumb']}">
+					<a href="javascript:uploadOneImage('图片上传','#avatar_thumb');">
+					<if condition="$data['avatar_thumb'] neq ''">
+						<img src="{:get_upload_path($data['avatar_thumb'])}"
+									id="avatar_thumb-preview"
+									style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					<else/>
+						<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="avatar_thumb-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					</if>
+					</a>
+					<input type="button" class="btn btn-sm btn-cancel-avatar_thumb" value="取消图片"> 建议尺寸：200px*200px
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input-bg_img" class="col-sm-2 control-label">背景图</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="hidden" name="bg_img" id="bg_img" value="{$data['bg_img']}">
+					<a href="javascript:uploadOneImage('图片上传','#bg_img');">
+					<if condition="$data['bg_img'] neq ''">
+						<img src="{:get_upload_path($data['bg_img'])}"
+									id="bg_img-preview"
+									style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					<else/>
+						<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="bg_img-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+					</if>
+					</a>
+					<input type="button" class="btn btn-sm btn-cancel-bg_img" value="取消图片"> 建议图片体积尽量小,如果不上传默认赋值头像
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input-type" class="col-sm-2 control-label"></label>
+				<div class="col-md-6 col-sm-10">
+					<p class="help-block">注意:请保持头像和缩略图图片一致</p>
+				</div>
+			</div>
+            
+            <div class="form-group">
+				<label for="input-type" class="col-sm-2 control-label"><span class="form-required">*</span>性别</label>
+				<div class="col-md-6 col-sm-10">
+					<label class="radio-inline"><input type="radio" name="sex" value="1" <if condition="1 eq $data['sex']">checked</if>>男</label>
+					<label class="radio-inline"><input type="radio" name="sex" value="2" <if condition="2 eq $data['sex']">checked</if>>女</label>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="input-signature" class="col-sm-2 control-label">个性签名</label>
+				<div class="col-md-6 col-sm-10">
+					<textarea class="form-control"  rows="2" cols="20" id="input-signature" name="signature" style="height: 100px; width: 500px;" >{$data['signature']}</textarea> 
+				</div>
+			</div>								
+				
+			<div class="form-group">
+					<label for="input-user_status" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('STATUS')}</label>
+
+					<div class="col-md-6 col-sm-10">
+						<label class="radio-inline"><input type="radio" name="user_status" value="1" <if condition="$data['user_status'] eq 1">checked</if> >{:lang('ENABLED')}</label>
+						<label class="radio-inline"><input type="radio" name="user_status" value="0"<if condition="$data['user_status'] eq 0">checked</if> />{:lang('DISABLED')}</label>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<label for="input-is_ad" class="col-sm-2 control-label"><span class="form-required">*</span>是否为广告视频发布者</label>
+					<div class="col-md-6 col-sm-10">
+						<label class="radio-inline"><input type="radio" name="is_ad" value="0" <if condition="$data['is_ad'] eq 0">checked</if> >否</label>
+						<label class="radio-inline"><input type="radio" name="is_ad" value="1" <if condition="$data['is_ad'] eq 1">checked</if>/>是</label>
+					</div>
+				</div>
+            
+
+            <div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="hidden" name="id" value="{$data.id}" />
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+					<a class="btn btn-default" href="{:url('user/adminIndex/index')}">{:lang('BACK')}</a>
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+	<script type="text/javascript">
+		(function(){
+
+			$('.btn-cancel-thumbewm').click(function () {
+				$('#thumbewm-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+				$('#thumbewm').val('');
+			});
+
+			$('.btn-cancel-avatar_thumb').click(function () {
+				$('#avatar_thumb-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+				$('#avatar_thumb').val('');
+			});
+
+			$('.btn-cancel-bg_img').click(function () {
+				$('#bg_img-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+				$('#bg_img').val('');
+			});
+		})()
+
+	</script>
+</body>
+</html>

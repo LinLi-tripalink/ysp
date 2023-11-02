@@ -1,0 +1,71 @@
+<include file="public@header"/>
+<style>
+.comment_lists_table{
+	border: 0;
+	width: 100%;
+}
+.comment_lists_table td{
+	border:0;
+}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<form method="post" class="js-ajax-form">
+			<if condition="!empty($lists)">
+
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+
+						<th>ID</th>
+						<th>用户</th>
+						<th width="60%">内容</th>
+						<th>评论时间</th>
+						<th>获赞数</th>
+						<th align="center">{:lang('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="lists" item="vo">
+						<tr>
+	
+							<td>{$vo['id']}</td>
+							<td>{$vo['user_nicename']}({$vo['uid']})</td>
+							<if condition="$vo.type eq '0'">
+								<td>{$vo['content']}</td>
+							<else />
+								<td>
+									<audio src="{$vo.voice}" controls="controls">
+										<source src="{$vo.voice}" >
+									您浏览器不支持此音频类型
+									</audio>
+								</td>
+							</if>
+							<td>{:date('Y-m-d H:i:s',$vo['addtime'])}</td>
+							<td>{$vo['likes']}</td>
+							<td>
+								<a class="btn btn-xs btn-danger js-ajax-delete" href="{:url('video/commentlists_del',array('id'=>$vo['id']))}">{:lang('DELETE')}</a>
+							</td>
+						</tr>
+
+					</foreach>
+					
+				</tbody>
+			</table>
+
+			<else />
+				<table style="border: none;width: 100%;">
+					<tbody>
+						<tr>
+							<td style="border: none;height: 50px;line-height: 50px;text-align: center;">暂无评论数据~</td>
+						</tr>
+					</tbody>
+				</table>
+			</if>
+			<div class="pagination">{$page}</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

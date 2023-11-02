@@ -1,0 +1,119 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('Gift/index')}">礼物列表</a></li>
+			<li class="active"><a >礼物添加</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('Gift/add_post')}" enctype="multipart/form-data">
+			<fieldset>				
+				<div class="form-group">
+					<label for="input-type" class="col-sm-2 control-label"><span class="form-required">*</span>类型</label>
+					<div class="col-md-6 col-sm-10" id="type">
+						<volist name="type" id="v">
+						<label class="radio-inline"><input type="radio" name="type" value="{$key}" <if condition="$i eq 1">checked</if>>{$v}</label>
+						</volist>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<label for="input-mark" class="col-sm-2 control-label"><span class="form-required">*</span>标识</label>
+					<div class="col-md-6 col-sm-10" id="mark" style="position: relative;">
+						<volist name="mark" id="v">
+						<label class="radio-inline" for="mark_{$key}"><input type="radio" name="mark" value="{$key}" id="mark_{$key}" <if condition="$i eq 1">checked</if>>{$v}</label>
+						</volist>
+					</div>
+				</div>
+
+				<div class="form-group" >
+					<label for="input-orderno" class="col-sm-2 control-label"><span class="form-required">*</span>序号</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-orderno"  name="orderno" value="0">
+					</div>
+				</div>
+
+				<div class="form-group" >
+					<label for="input-giftname" class="col-sm-2 control-label"><span class="form-required">*</span>名称</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-giftname"  name="giftname" value="">
+					</div>
+				</div>
+
+				<div class="form-group" >
+					<label for="input-needcoin" class="col-sm-2 control-label"><span class="form-required">*</span>所需点数</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-needcoin"  name="needcoin" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="input-thumb" class="col-sm-2 control-label"><span class="form-required">*</span>图片</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="hidden" name="gifticon" id="thumb" value="">
+						<a href="javascript:uploadOneImage('图片上传','#thumb');">
+							<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="thumb-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+						</a>
+						<input type="button" class="btn btn-sm btn-cancel-thumb" value="取消图片">
+						<p class="help-block">建议尺寸： 50 X 50 太大会造成加载图片加载慢等各种问题</p>
+					</div>
+				</div>
+				
+				<div id="swf_area" style="display: none;">
+
+					<div class="form-group" id="swftype">
+						<label for="input-swftype" class="col-sm-2 control-label">动画类型</label>
+						<div class="col-md-6 col-sm-10">
+							<volist name="swftype" id="vo">
+								<label class="radio-inline"><input type="radio" name="swftype" value="{$key}" <if condition="$key eq 0">checked</if> >{$vo}</label>
+							</volist>
+							
+							<p class="help-block">在礼物类型为豪华礼物时动画相关设置和上传才生效</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input-swf_thumb" class="col-sm-2 control-label"><span class="form-required">*</span>动画图片</label>
+						<div class="col-md-6 col-sm-10">
+							<input type="hidden" name="swf" id="swf_thumb" value="">
+							<a href="javascript:uploadOneImage('图片上传','#swf_thumb');" id="swftype_bd_0">
+								<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="swf_thumb-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+							</a>
+
+							<a href="javascript:void(0);" id="swftype_bd_1" style="display:none">
+	                            <input type="file" name="file">
+	                        </a>
+
+							<input type="button" class="btn btn-sm btn-cancel-swf_thumb" id="swftype_cancel_0" value="取消图片">
+						</div>
+					</div>
+					
+					
+					<div class="form-group" >
+						<label for="input-swftime" class="col-sm-2 control-label"><span class="form-required">*</span>动画时长</label>
+						<div class="col-md-6 col-sm-10">
+							<input type="text" class="form-control" id="input-swftime"  name="swftime" value="">
+							<p class="help-block">秒 精度：小数点后两位</p>
+
+						</div>
+					</div>
+
+				</div>
+
+			</fieldset>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+					<a class="btn btn-default" href="{:url('Gift/index')}">{:lang('BACK')}</a>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js?t={$time}"></script>
+	<script src="__STATIC__/admin/js/gift.js?t={$time}"></script>
+
+</body>
+</html>

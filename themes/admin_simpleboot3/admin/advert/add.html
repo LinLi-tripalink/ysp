@@ -1,0 +1,126 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">	
+			<li class="active"><a >广告添加</a></li>
+		</ul>
+
+
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('Advert/add_post')}">
+			<fieldset>				
+				
+
+				<div class="form-group" id="owner_uid">
+					<label for="input-user_nicename" class="col-sm-2 control-label"><span class="form-required">*</span>所有者用户</label>
+					<div class="col-md-6 col-sm-10">
+						<!-- <input type="text" class="form-control" name="owner_uid" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">请填写用户id -->
+						
+						<select class="select_2 form-control" name="owner_uid">
+							<volist name="adLists" id="vo">
+							<option value="{$vo['id']}" >{$vo['user_nicename']}({$vo['id']})</option>
+							</volist>
+						</select>
+						
+					</div>
+				</div>
+				
+				
+				
+				<div class="form-group" >
+					<label for="input-title" class="col-sm-2 control-label"><span class="form-required">*</span>广告标题</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-title"  name="title"  />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>广告封面</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="hidden" name="thumb" id="thumbewm" value="">
+						<a href="javascript:uploadOneImage('图片上传','#thumbewm');">
+							<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="thumbewm-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+						</a>
+						<input type="button" class="btn btn-sm btn-cancel-thumbewm" value="取消图片">
+					</div>
+				</div>
+				
+				
+				<div class="form-group" >
+					<label for="input-ad_endtime" class="col-sm-2 control-label">到期时间</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="js-bootstrap-date form-control" id="input-ad_endtime"  name="ad_endtime" autocomplete="off"  />
+					</div>
+				</div>
+
+				
+				<div class="form-group">
+					<label for="input-video_upload_type" class="col-sm-2 control-label"><span class="form-required">*</span>视频上传型式</label>
+					<div class="col-md-6 col-sm-10">
+						<label class="radio-inline"><input type="radio" name="video_upload_type" value="0" checked>视频链接</label>
+						<label class="radio-inline"><input type="radio" name="video_upload_type" value="1" >视频文件</label>
+					</div>
+				</div>
+
+				
+				
+				
+				<div class="form-group video_url_area" >
+					<label for="input-href" class="col-sm-2 control-label"><span class="form-required">*</span>视频链接</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-href"  name="href"  />以http://或https://开头
+					</div>
+				</div>
+				
+				<div class="form-group upload_video_area" style="display: none;">
+					<label for="input-file" class="col-sm-2 control-label">上传视频</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="file" class="form-control" id="input-file"  name="file"  />
+					</div>
+				</div>
+
+				<div class="form-group" >
+					<label for="input-ad_url" class="col-sm-2 control-label">广告外链</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text" class="form-control" id="input-ad_url"  name="ad_url"  />
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+					<a class="btn btn-default" href="{:url('Advert/index')}">{:lang('BACK')}</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$("input[name='video_upload_type']").click(function(){
+				var val=$("input[name='video_upload_type']:checked").val();
+				console.log(val);
+				if(val==0){
+					$(".video_url_area").show();
+					$(".upload_video_area").hide();
+				}else{
+					$(".video_url_area").hide();
+					$(".upload_video_area").show();
+					$("input[name='href']").val('');
+				}
+			});
+			
+			
+			$('.btn-cancel-thumbewm').click(function () {
+				$('#thumbewm-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+				$('#thumbewm').val('');
+			});
+
+			
+
+		});
+	</script>
+</body>
+</html>

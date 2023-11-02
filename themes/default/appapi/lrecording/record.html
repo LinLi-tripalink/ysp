@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <include file="Public/head"/> <!--公共css-->
+	<link type="text/css" rel="stylesheet" href="__STATIC__/appapi/css/lrecording.css"/> 
+    <title>直播动态</title>
+</head>
+<body>
+    <div class="uinfo">
+		<div class="img"><img src="{$userinfo['avatar']}" /></div>
+		<div class="info">
+			<p class="name">{$userinfo['user_nicename']}</p>
+			<p class="id">ID:{$userinfo['id']}</p>
+		</div>
+	</div>
+	
+	<div class="lists">
+		<div class="lists_tit">历史回顾</div>
+		<ul>
+			<volist name="list" id="vo">
+				<li>
+					<img src="__STATIC__/appapi/images/dian.png">
+					<div class="date">{$vo['starttime']}</div>
+					<div class="describe">{$vo['describe']} {$vo['title']}</div>
+				</li>
+			</volist>
+		
+		</ul>
+	
+	</div>
+		
+		
+	
+	<script>
+		var uid='{$uid}';
+		var token='{$token}';
+        var baseSize = 100;
+        function setRem () {
+          var scale = document.documentElement.clientWidth / 750;
+          document.documentElement.style.fontSize = (baseSize * Math.min(scale, 3)) + 'px';
+        }
+        setRem();
+        window.onresize = function () {
+          setRem();
+        }
+	</script>
+	<include file="Public/footer"/> 
+
+</body>
+</html>

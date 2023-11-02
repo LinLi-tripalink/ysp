@@ -1,0 +1,223 @@
+<include file="public@header" />
+<style>
+li{
+    list-style:none;
+}
+.js-ajax-form li 
+{
+	list-style:none;
+	width:160px;
+	height:370px;
+	border: 1px solid #C2D1D8;
+	float:left;
+	margin:10px;			
+}
+.js-ajax-form li button
+{
+	margin-left:30px;
+}
+.js-ajax-form li span
+{
+	display:block;
+	text-align:center
+}
+.js-ajax-form li .name
+{
+	width:157px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.full_btn
+{
+	float: left;
+  height: 30px;
+  padding: 0 18px;
+  background: #1dccaa;
+  border-radius: 4px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.full_btn:hover
+{
+	background: #356f64;
+	color: #fff;
+	text-decoration:none;
+}
+.xgplayer-start svg{
+    margin: 0 !important;
+}
+#pop{
+    display:none; 
+}
+</style>
+</head>
+<body>
+	<script src="__STATIC__/js/admin.js"></script>
+	<script src="__STATIC__/js/socket.io.js"></script>
+	<script src="__STATIC__/xigua/xgplayer.js?t=1610159896" type="text/javascript"></script>
+  <script src="__STATIC__/xigua/index.js?t=1610159896" type="text/javascript"></script>
+    <script src="__STATIC__/xigua/xgplayer-flv.js?t=1610159896" type="text/javascript"></script>
+    <script src="__STATIC__/xigua/backups/xgplayer-hls.js.js" type="text/javascript"></script>
+    <script src="__STATIC__/xigua/player.js?t=1586844770" type="text/javascript"></script>
+    
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a >监控</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form" >
+            <ul>
+                <foreach name="lists" item="v">
+	    		<li class="mytd">
+					<span>开播时长:<?php 
+								$times = time()-$v['showid'];
+								$result = '';
+								$hour = floor($times/3600);
+                                $minute = floor(($times-3600 * $hour)/60);
+                                $second = floor((($times-3600 * $hour) - 60 * $minute) % 60);
+                                $result = $hour.':'.$minute.':'.$second;
+                                echo  $result;?>
+                     </span>
+                     <div style="width: 158px;height: 280px;">
+                        <div  id="<?php echo $v['uid'];?>" style="width:100%;height:83%;"></div>
+                     </div>
+                    <div>
+                      <span class="name">主播:<?php echo $v['userinfo']['user_nicename'];?></span>
+                      <span>房间号:<?php echo $v['uid'];?></span>
+                      <div style="text-align:center;">
+							<a  onclick="warningRoom('<?php echo $v['uid'];?>')" class="btn btn-xs btn-warning">警告</a>
+							<a  onclick="closeRoom('<?php echo $v['uid'];?>')" class="btn btn-xs btn-warning">关闭</a>
+							<a  onclick="showlayer('<?php echo $v['uid'];?>')" class="btn btn-xs btn-warning">封禁</a>
+                          <!-- <a  onclick="fullRoom('<?php echo $v['uid'];?>')" class="full_btn mybtn">大屏</a> -->
+                      </div>
+                    </div>
+                </li>
+                <script type="text/javascript">
+                    (function(){
+                        xgPlays('{$v['uid']}','{$v['url']}');
+                    })()
+                </script>				
+                </foreach>
+            </ul>
+
+		</form>
+        <div style="clear:both;"></div>
+        <div class="pagination"  style="clear:both">{$page}</div>
+	</div>
+	
+	<div id="pop">
+		<div class="wrap" style="padding-bottom:40px;">
+			<form method="post" class="form-horizontal margin-top-20">
+				<div class="form-group">
+					<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>封禁时间</label>
+					<div class="col-md-6 col-sm-10">
+						<select class="form-control" id="ban_long">
+							<option value="30_1">30分钟</option>
+							<option value="1_2">1天</option>
+							<option value="7_2">7天</option>
+							<option value="15_2">15天</option>
+							<option value="30_2">30天</option>
+							<option value="90_2">90天</option>
+							<option value="180_2">180天</option>
+							<option value="0_0">永久</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<a href="javascript:void(0)" class="btn btn-primary" onclick="ban_submit()">禁用</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="__STATIC__/js/layer/layer.js"></script>
+    <script type="text/javascript">
+        var socket = new io("{$configpri['chatserver']}");
+		
+		var popuid='';
+		 //封禁
+		Wind.use('layer');
+		function showlayer(uid){
+            layer.open({
+                type: 1,
+                title: '封禁',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['600px', '260px'],
+                content: $('#pop'),
+
+            }); 
+			popuid=uid;
+		}
+		function ban_submit(){
+			var ban_long=$("#ban_long").val();
+            if(ban_long==''){
+                layer.msg("请选择封禁时间");
+                return;
+            }
+			$.ajax({
+				url: '/admin/Monitor/stopRoom',
+				type: 'POST',
+				dataType: 'json',
+				data: {uid:popuid,ban_long:ban_long},
+				success:function(data){
+					console.log(data);
+					if(data.status ==0){
+						layer.msg(data.info);
+					}else{
+						layer.msg("操作成功",{},function(){
+							var data2 = {"token":"1234567","roomnum":popuid,"content":data.info};
+							socket.emit("LiveBanadmin",data2);
+							layer.msg("房间已关闭");
+							location.reload();
+						});
+					}
+				},
+				error:function(e){
+				}
+			});
+			
+		}
+		 
+		/*警告*/
+        function warningRoom(roomId){
+			var data2 = {"token":"1234567","roomnum":roomId,"content":"您已涉及违规，请立即改正否则将会关播直播间"};
+			socket.emit("warningadmin",data2);
+
+			layer.msg('操作成功');
+
+		}
+		 
+		/*关播*/
+        function closeRoom(roomId){
+          var data2 = {"token":"1234567","roomnum":roomId,"content":"您已涉及违规，管理员已关闭您的直播间"};
+                $.ajax({
+                    async: false,
+                    url: '/admin/Monitor/stopRoom',
+                    data:{uid:roomId},
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        if(data.status ==0){
+                            layer.msg(data.info);
+                        }else{
+                            socket.emit("superadminaction",data2);
+                            layer.msg("房间已关闭");
+                            location.reload();
+                        }
+                    },
+                    error:function(XMLHttpRequest, textStatus, errorThrown){
+                        layer.msg('关闭失败，请重试');
+                    }
+                });
+		}
+    </script>
+</body>
+</html>

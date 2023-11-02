@@ -1,0 +1,52 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li ><a href="{:url('Reportcat/index')}">直播间举报类型列表</a></li>
+			<li class="active"><a >类型添加</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('Reportcat/add_post')}">
+			<fieldset>
+
+				<div class="form-group" >
+					<label for="input-orderno" class="col-sm-2 control-label"><span class="form-required">*</span>排序号</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text"class="form-control" id="input-orderno"  name="orderno" value="0">
+						<p class="help-block">填写正整数</p>
+					</div>
+				</div>
+				
+				<div class="form-group" >
+					<label for="input-title" class="col-sm-2 control-label"><span class="form-required">*</span>举报类型名称</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text"class="form-control" id="input-title"  name="title" value=""> 
+						<p class="help-block">简洁明了</p>
+					</div>
+				</div>
+				
+				<div class="form-group" >
+					<label for="input-isdel" class="col-sm-2 control-label"><span class="form-required">*</span>是否显示</label>
+					<div class="col-md-6 col-sm-10">
+						<label class="radio-inline"><input type="radio" name="isdel" value="0" checked>显示</label>
+						<label class="radio-inline"><input type="radio" name="isdel" value="1" >不显示</label> 
+					</div>
+				</div>
+
+
+			</fieldset>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+					<a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+	
+	
+</body>
+</html>

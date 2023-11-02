@@ -1,0 +1,103 @@
+<include file="public@header"/>
+</head>
+<body>
+<style>
+input{
+  width:500px;
+}
+.form-horizontal textarea{
+ width:500px;
+}
+.nav-tabs>.current>a{
+    color: #95a5a6;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+.nav li
+{
+	cursor:pointer
+}
+.nav li:hover
+{
+	cursor:pointer
+}
+.hide{
+	display:none;
+}
+</style>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a >配置</a></li>
+			<li><a href="{:url('Guide/index')}">管理</a></li>
+		</ul>
+		
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('Guide/set_post')}">
+			<div class="js-tabs-content">
+				<!-- 网站信息 -->
+				<div>
+					<fieldset>
+					
+						
+						
+						<div class="form-group">
+                            <label for="input-banned_usernames" class="col-sm-2 control-label">引导页开关</label>
+                            <div class="col-md-6 col-sm-10">
+                                <select class="form-control" name="post[switch]">
+                                    <option value="0">否</option>
+                                    <php>
+                                        $open_switch_selected = empty($config['switch'])?'':'selected';
+                                    </php>
+                                    <option value="1" {$open_switch_selected}>是</option>
+                                </select>
+                            </div>
+                        </div>
+
+						<div class="form-group">
+                            <label for="input-banned_usernames" class="col-sm-2 control-label">引导页类型</label>
+                            <div class="col-md-6 col-sm-10">
+                                <select class="form-control" name="post[type]">
+                                    <option value="0">图片</option>
+                                    <php>
+                                        $open_type_selected = empty($config['type'])?'':'selected';
+                                    </php>
+                                    <option value="1" {$open_type_selected}>视频</option>
+                                </select>
+                            </div>
+                        </div>
+						
+						
+						<php>
+							$open_type_none = empty($config['type'])?'':"style='display:none'";
+						</php>	
+						<div class="form-group" {$open_type_none}>
+						 
+						
+                            <label for="input-time" class="col-sm-2 control-label">图片展示时间</label>
+                            <div class="col-md-6 col-sm-10">
+                                 <input type="text" class="form-control" id="input-time" name="post[time]"
+                                       value="{$config.time|default=''}">
+                            </div>
+                        </div>
+                        
+
+						
+					</fieldset>
+				</div>
+
+			</div>
+		
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+					<a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+
+</body>
+</html>

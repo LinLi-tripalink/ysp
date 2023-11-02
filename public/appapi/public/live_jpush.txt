@@ -1,0 +1,172 @@
+20-09-24 03:19:11提交参数信息 设备名:["140fe1da9e1bf95b9e4"]
+20-09-24 03:19:11提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-24 03:20:07提交参数信息 设备名:["140fe1da9e1bf95b9e4"]
+20-09-24 03:20:07提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-24 03:24:35提交参数信息 设备名:["140fe1da9e1bf95b9e4"]
+20-09-24 03:24:35提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-24 03:51:39提交参数信息 设备名:["100d855909f1d2269cf"]
+20-09-24 03:51:39提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-27 03:00:06提交参数信息 设备名:["100d855909f1d2269cf"]
+20-09-27 03:00:06提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-27 03:27:54提交参数信息 设备名:["100d855909f0f9497a5"]
+20-09-27 03:27:54提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-27 03:30:55提交参数信息 设备名:["100d855909f0f9497a5"]
+20-09-27 03:30:55提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-29 03:27:07提交参数信息 设备名:["100d855909f1d2269cf"]
+20-09-29 03:27:07提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 09:27:35提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 09:27:35提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 10:19:22提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 10:19:22提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 10:46:40提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 10:46:40提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:01:17提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:01:17提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:02:23提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:02:23提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:05:33提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:05:33提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:11:44提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:11:44提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:16:38提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:16:38提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-09-30 11:54:40提交参数信息 设备名:["100d855909f27841861"]
+20-09-30 11:54:40提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 11:13:38提交参数信息 设备名:["100d855909f27841861"]
+20-10-08 11:13:38提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 11:15:23提交参数信息 设备名:["100d855909f27841861"]
+20-10-08 11:15:23提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 11:37:55提交参数信息 设备名:["100d855909f27841861"]
+20-10-08 11:37:55提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 11:40:09提交参数信息 设备名:["100d855909f27841861"]
+20-10-08 11:40:09提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 04:03:06提交参数信息 设备名:["121c83f76093cd4cb80"]
+20-10-08 04:03:06提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 04:08:46提交参数信息 设备名:["121c83f76093cd4cb80"]
+20-10-08 04:08:46提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-08 04:09:01提交参数信息 设备名:["121c83f76093cd4cb80"]
+20-10-08 04:09:01提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 02:33:32提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 02:33:32提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 02:37:51提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 02:37:51提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 02:43:29提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 02:43:29提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 03:04:34提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 03:04:34提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 03:15:31提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 03:15:31提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-09 05:44:35提交参数信息 设备名:["100d855909f27841861"]
+20-10-09 05:44:35提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-10 09:23:17提交参数信息 设备名:["100d855909f27841861"]
+20-10-10 09:23:17提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-10 09:26:29提交参数信息 设备名:["100d855909f27841861"]
+20-10-10 09:26:29提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-10 10:22:11提交参数信息 设备名:["18071adc03bdf0cb8e6"]
+20-10-10 10:22:11提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-10 05:32:00提交参数信息 设备名:["1104a897921c78065c3"]
+20-10-10 05:32:00提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-13 10:27:57提交参数信息 设备名:["190e35f7e0f5dccce78","170976fa8a3118de0a4","100d855909f1d2269cf"]
+20-10-13 10:27:57提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+20-10-14 09:24:57提交参数信息 设备名:["18071adc03b947e28c3","100d855909f3017665a"]
+20-10-14 09:24:57提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience 
+
+21-10-25 03:55:08提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-10-25 03:55:08提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-10-25 03:59:36提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-10-25 03:59:36提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-10-25 04:02:30提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-10-25 04:02:30提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-10-26 04:24:14提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-10-26 04:24:14提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-11-17 06:47:34提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-11-17 06:47:34提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-11-17 06:48:19提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-11-17 06:48:19提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+
+21-11-17 06:57:00提交参数信息 设备名:["1a0018970a178db790b","160a3797c8b0c6a628b","13065ffa4eb911b1dcf"]
+21-11-17 06:57:00提交参数信息:
+JPush\Exceptions\APIRequestException -- [1011]: cannot find user by this audience or has been inactive for more than 255 days 
+

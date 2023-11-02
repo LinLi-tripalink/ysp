@@ -1,0 +1,64 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li ><a href="{:url('Music/classify')}">音乐分类</a></li>
+			<li class="active"><a >修改</a></li>
+		</ul>
+
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('Music/classify_edit_post')}">
+			<fieldset>
+				
+				<input type="hidden" name="id" value="{$classify_info['id']}">
+				
+				
+				<div class="form-group" >
+					<label for="input-orderno" class="col-sm-2 control-label"><span class="form-required">*</span>排序号</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text"class="form-control" id="input-orderno"  name="orderno" value="{$classify_info['orderno']}"><p class="help-block">填写正整数</p>
+					</div>
+				</div>
+				
+				<div class="form-group" >
+					<label for="input-title" class="col-sm-2 control-label"><span class="form-required">*</span>分类标题</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="text"class="form-control" id="input-title"  name="title" value="{$classify_info['title']}"> <p class="help-block">简洁明了</p>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>图片</label>
+					<div class="col-md-6 col-sm-10">
+						<input type="hidden" name="img_url" id="thumbewm" value="{$classify_info['img_url']}">
+						<a href="javascript:uploadOneImage('图片上传','#thumbewm');">
+						<if condition="$classify_info['img_url'] neq ''">
+							<img src="{:get_upload_path($classify_info['img_url'])}"
+										 id="thumbewm-preview"
+										 style="cursor: pointer;max-width:150px;max-height:150px;"/>
+						<else/>
+							<img src="__TMPL__/public/assets/images/default-thumbnail.png" id="thumbewm-preview" style="cursor: pointer;max-width:150px;max-height:150px;"/>
+						</if>
+						</a>
+						<input type="button" class="btn btn-sm btn-cancel-thumbewm" value="取消图片">
+						<p class="help-block">建议尺寸100px*100px</p>
+					</div>
+				</div>
+		
+
+			</fieldset>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+					<a class="btn btn-default" href="{:url('Music/classify')}">{:lang('BACK')}</a>
+				</div>
+			</div>
+			
+		
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+	
+</body>
+</html>
