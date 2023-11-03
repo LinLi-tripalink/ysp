@@ -12,7 +12,7 @@ return array(
             'host'   => '127.0.0.1',        //Redis服务器地址
             'port'   => '6379',             //Redis端口号
             'prefix' => 'developers_',      //Redis-key前缀
-            'auth'   => 'woyouwaimai76',    //Redis链接密码
+            'auth'   => 'dfr38ck.',    //Redis链接密码
         ),
         // Redis分库对应关系
         'DB'       => array(
