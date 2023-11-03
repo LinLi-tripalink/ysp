@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta content="telephone=no" name="format-detection">
 <meta name="baidu-site-verification" content="QpfdfPmoBr" />
-<title>悄袅玩</title>
+<title>乐通</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="keywords" content=""/>
 <meta name="description" content=""/>
@@ -24,7 +24,7 @@
 	<div class="menu">
 		<div class="menu_center">
 			<div class="sitename fl">
-				悄袅玩			</div>
+				乐通			</div>
 			<div class="menu_right fr">
 				<ul>
 					<li data-menuanchor="page1" class="active">
@@ -90,9 +90,9 @@
 		</div>
 		<div class="section2_right fl">
 			<div class="company_name">
-				悄袅玩			</div>
+				乐通			</div>
 			<div class="company_desc">
-				悄袅玩一个以短视频为主体切入点，记录多元化兴趣的内容段视频创作平台			</div>
+				乐通一个以短视频为主体切入点，记录多元化兴趣的内容段视频创作平台			</div>
 
 		</div>
 		<div class="clearboth"></div>
