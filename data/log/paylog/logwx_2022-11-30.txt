@@ -1,0 +1,5 @@
+2022-11-30 14:56:35  msg:数据打印测试签名signmy:355C3FA21F8209CF090EB201B1F8305A:::微信sign:355C3FA21F8209CF090EB201B1F8305A
+2022-11-30 14:56:35  msg:签名验证结果成功:355C3FA21F8209CF090EB201B1F8305A
+2022-11-30 14:56:35  msg:info:{"appid":"wx626ad90b9e955dc2","bank_type":"OTHERS","cash_fee":"100","fee_type":"CNY","is_subscribe":"N","mch_id":"1634895511","nonce_str":"f751266963477e12ab6e1335671f572a","openid":"o50xz6mvdVY0ggDebKlYEMkoab4o","out_trade_no":"21185_20221130145627422","result_code":"SUCCESS","return_code":"SUCCESS","sign":"355C3FA21F8209CF090EB201B1F8305A","time_end":"20221130145634","total_fee":"100","trade_type":"APP","transaction_id":"4200001666202211300182440648"}
+2022-11-30 14:56:35  msg:orderinfo:{"id":17,"uid":21185,"touid":21185,"money":"1.00","coin":10,"coin_give":0,"orderno":"21185_20221130145627422","trade_no":"","status":0,"addtime":1669791387,"type":2,"ambient":0}
+2022-11-30 15:01:50  msg:

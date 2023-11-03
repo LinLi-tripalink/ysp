@@ -1,0 +1,5 @@
+2022-12-03 10:22:10  msg:info:{"product_id":"qnb_5","transaction_id":"2000000218323995"}
+2022-12-03 10:24:09  msg:info:{"product_id":"qnb_6","transaction_id":"2000000218324192"}
+2022-12-03 10:25:56  msg:info:{"product_id":"qnb_998","transaction_id":"2000000218324508"}
+2022-12-03 11:31:47  msg:info:{"product_id":"qnb_5","transaction_id":"2000000218333371"}
+2022-12-03 11:52:05  msg:info:{"product_id":"qnb_12","transaction_id":"2000000218335093"}
